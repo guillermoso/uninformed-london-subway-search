@@ -1,5 +1,8 @@
-from graph.handler import graphHandler
+from UninformedSearch import UninformedSearch
 
-graph = graphHandler()
+searchAlgorithm = UninformedSearch()
 
-print(graph.graphDef)
+successNode = searchAlgorithm.search(strategy=1, start="1", goal="9")
+
+successNode.backTrack()
+

@@ -1,6 +1,6 @@
 import csv
 
-class graphHandler:
+class GraphHandler:
     def __init__(self):
         self.lines = []
         self.stations = []
@@ -15,14 +15,16 @@ class graphHandler:
             lines_file = csv.DictReader(csv_file)
             for row in lines_file:
                 self.lines.append({
-                    'id': row['line'],
+                    'id'  : row['line'],
                     'name': row['name']
                 })
 
-    def getLinesName(self, lineNo):
+    def getLinesData(self, lineParam):
         for line in self.lines:
-            if line["id"] == lineNo:
+            if line["id"] == lineParam:
                 return line["name"]
+            if line["name"] == lineParam:
+                return line["id"]
         return None
 
     def loadStations(self):
@@ -30,14 +32,16 @@ class graphHandler:
             stations_file = csv.DictReader(csv_file)
             for row in stations_file:
                 self.stations.append({
-                    'station': row['id'],
+                    'id'  : row['id'],
                     'name': row['name']
                 })
 
-    def getStationsName(self, stationNo):
+    def getStationsData(self, stationParam):
         for station in self.stations:
-            if station["id"] == stationNo:
+            if station["id"] == stationParam:
                 return station["name"]
+            if station["name"] == stationParam:
+                return station["id"]
         return None
 
     def defineGraph(self):
