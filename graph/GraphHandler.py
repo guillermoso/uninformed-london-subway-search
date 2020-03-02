@@ -40,9 +40,18 @@ class GraphHandler:
         for station in self.stations:
             if station["id"] == stationParam:
                 return station["name"]
-            if station["name"] == stationParam:
+            
+            stationsName = station["name"]
+            if  stationsName.upper() == stationParam.upper():
                 return station["id"]
         return None
+
+    def validStation(self, stationToEval):
+        for station in self.stations:
+            currentStation = station['name']
+            if currentStation.upper() == stationToEval.upper():
+                return True
+        return False
 
     def defineGraph(self):
         with open('graph/lineDefinition.csv') as csv_file:

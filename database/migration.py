@@ -55,7 +55,6 @@ with open('/home/memo/python_scripts/1_busqueda/graph/stations.csv') as f:
         "(%s, %s, %s, %s, %s, %s, %s)"
     )
     for item in orderedList:
-        print(item)
         display_name = item['display_name'] if item['display_name'] != 'NULL' else None
         cursor.execute(newLineInsert, (float(item['latitude']), float(item['longitude']), item['name'],
                                        display_name, item['zone'], item['total_lines'], item['rail']))

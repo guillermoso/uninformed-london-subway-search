@@ -20,15 +20,14 @@ class UninformedSearch:
               self.fail = True
               raise Exception("Empty fringe.")
           else:
-                # stack implementation
+                # TODO: which strategy is which
                 if (strategy == 1):
-                    activeNode = self.fringe.pop() #lifo = profundidad
+                    activeNode = self.fringe.pop()
                 else:
-                    activeNode = self.fringe.pop(0) #fifo = anchura
+                    activeNode = self.fringe.pop(0) 
                 
-                #TODO: revisar este codigo
                 if (not (activeNode.data[0] in self.visitedStations)):
-                    # print(activeNode.data[0])
+
                     self.visitedStations.append(activeNode.data[0])
                     if activeNode.data[0] == goal:
                         self.found = True
@@ -43,9 +42,7 @@ class UninformedSearch:
                             succesors.append(succesor)
                         
                         self.fringe = self.fringe + succesors
-        
-        # self.visitedStations[]
-    
+                        
 class node:
     def __init__(self, data):
         self.parent = None
